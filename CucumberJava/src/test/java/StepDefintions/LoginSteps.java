@@ -15,7 +15,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.cucumber.core.cli.Main;
 
 public class LoginSteps {
 	WebDriver driver = null;
@@ -86,6 +85,10 @@ public class LoginSteps {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			WebElement startYourtrial = driver.findElement(By.cssSelector("#lite-selection"));
 			startYourtrial.click();
+			WebElement vsSarmonth= driver.findElement(By.cssSelector("#FIGHTING_SPIRIT_SUBSCRIPTION > div > div.payment-header > div > b"));
+			vsSarmonth.click();
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			WebElement orderSummaryNextButton = driver.findElement(By.cssSelector("#btnChoosePaymentMethod"));
 			orderSummaryNextButton.click();
 		} catch (Exception e) {
